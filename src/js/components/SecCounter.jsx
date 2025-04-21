@@ -12,7 +12,6 @@ export const SecCounter = () => {
     }, []);
     //Fin incremento del contador por segundo
 
-    // Convertir el contador a formato de 6 dígitos con ceros a la izquierda
     const formattedCounter = counter.toString().padStart(6, "0");
 
     return (
