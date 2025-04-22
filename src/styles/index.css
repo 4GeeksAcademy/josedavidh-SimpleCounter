@@ -9,3 +9,18 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.counterclass{
+    border: 0px solid red;
+    background-color: black;
+    color: white;
+    gap: 10px;
+    justify-content: center;
+}
+
+.counterclass > div{
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-size: 2.5rem;
+}

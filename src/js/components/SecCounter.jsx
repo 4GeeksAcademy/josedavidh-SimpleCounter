@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-export const SecCounter = () => {
-    const [counter, setCounter] = useState(0);
+export const SecCounter = (props) => {
 
-    //Incremento del contador por segundo
+    const [counter, setCounter] = useState(0)
+
+
+
+
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCounter((prevCounter) => prevCounter + 1);
-        }, 1000);
-        return () => clearInterval(intervalId);
-    }, []);
-    //Fin incremento del contador por segundo
+            setCounter(counter + 1)
+        }, 100)
 
-    const formattedCounter = counter.toString().padStart(6, "0");
+        return () => clearInterval(intervalId)
+
+    }, [counter])
+
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col-12 bg-black text-white d-flex justify-content-center">
-                    <h1 className="me-2"><i className="fa-solid fa-clock text-white"></i></h1>
-                    <h1 className="d-flex">
-                        {formattedCounter.split("").map((digit, index) => (
-                            <span key={index} className="mx-1">
-                                {digit}
-                            </span>
-                        ))}
-                    </h1>
+                <div className="col-12">
+                    <div className="d-flex counterclass">
+                        <div><i className="far fa-clock"></i></div>
+                        <div>{Math.floor((counter / 1000) % 10)}</div>
+                        <div>{Math.floor((counter / 100) % 10)}</div>
+                        <div>{Math.floor((counter / 10) % 10)}</div>
+                        <div>{Math.floor((counter / 1) % 10)}</div>
+                    </div>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
